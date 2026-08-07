@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theodore | Engineering Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Theodore Skafidas</h1>
+        <p>Electrical Engineer | Hardware & Firmware Development</p>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am an electrical engineer with a strong preference for hands-on, physical engineering applications. I specialize in bridging hardware and software, from multi-layer layout configuration to embedded firmware.</p>
+    </section>
+
+    <section id="projects">
+        <h2>Selected Projects</h2>
+        
+        <div class="project-card">
+            <h3>Reconfigurable Digital IC Test Fixture</h3>
+            <p><strong>Role:</strong> Documentation & Requirements Engineering</p>
+            <p>Authored the comprehensive documentation and developed the Requirements Traceability Matrix (RTM) to ensure all design specifications were mapped and tracked prior to the final bench validation phase.</p>
+        
+            <div class="project-gallery">
+                <img src="images/fixture.png" alt="PCB Rendering">
+            </div>
+
+            <div class="project-files">
+                <h4>Project Files:</h4>
+                <a href="documents/Reconfigurable_Test_Fixture.pdf" download class="file-btn">📄 Full Project Document (PDF)</a>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Addressable LED Pixel Array Architecture</h3>
+            <p><strong>Role:</strong> Hardware & Firmware Configuration</p>
+            <p>Configured high-density LED pixel arrays and controller firmware. Troubleshot data line integrity, implemented power injection strategies, and modified flexible PCBs for seamless operation.</p>
+        
+            <div class="project-gallery">
+                
+            </div>
+
+            <div class="project-files">
+                <h4>Project Files:</h4>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <h3>Multi-Layer PCB Design</h3>
+            <p><strong>Role:</strong> Layout Designer</p>
+            <p>Configured layouts and optimized hardware routing for multi-layer printed circuit boards, focusing on robust plane connections and signal integrity.</p>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        <p>
+            Email: <a href="mailto:theodore_skafidas@outlook.com">theodore_skafidas@outlook.com</a> | 
+            LinkedIn: <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer"> linkedin.com/in/theodore-skafidas</a>
+        </p>
+    </footer>
+
+    <!-- Lightbox Container -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
+    </div>
+
+    <!-- JavaScript for Lightbox -->
+    <script>
+        // Grab the elements from the HTML
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const closeBtn = document.querySelector('.close-lightbox');
+        const galleryImages = document.querySelectorAll('.project-gallery img');
+
+        // Loop through all gallery images and add a click event
+        galleryImages.forEach(img => {
+            img.addEventListener('click', () => {
+                lightbox.style.display = 'flex'; // Show the overlay
+                lightboxImg.src = img.src;       // Copy the clicked image's source to the lightbox image
+            });
+        });
+
+        // Close the lightbox when clicking the 'X'
+        closeBtn.addEventListener('click', () => {
+            lightbox.style.display = 'none';
+        });
+
+        // Close the lightbox if the user clicks anywhere on the dark background
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

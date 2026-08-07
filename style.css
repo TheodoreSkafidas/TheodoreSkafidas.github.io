@@ -1,0 +1,164 @@
+/* Base settings */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+/* Header styling */
+header {
+    background: #1a252c;
+    color: #ffffff;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+header nav {
+    margin-top: 1.5rem;
+}
+
+header nav a {
+    color: #64b5f6;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffffff;
+}
+
+/* Main content sections */
+section {
+    padding: 3rem 2rem;
+    max-width: 800px;
+    margin: auto;
+}
+
+/* Project cards */
+.project-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid #64b5f6;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.project-card h3 {
+    margin-top: 0;
+    color: #1a252c;
+}
+
+/* Image Gallery Styling */
+.project-gallery {
+    display: flex;
+    gap: 15px;
+    margin: 1.5rem 0;
+}
+
+.project-gallery img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Download Files Section */
+.project-files h4 {
+    margin-bottom: 0.5rem;
+    color: #1a252c;
+}
+
+/* Download Button Styling */
+.file-btn {
+    display: inline-block;
+    background-color: #1a252c;
+    color: #ffffff;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.file-btn:hover {
+    background-color: #64b5f6;
+    color: #1a252c;
+    text-decoration: none;
+}
+
+/* Lightbox Background */
+.lightbox {
+    display: none; /* Hidden until clicked */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(26, 37, 44, 0.9); /* Dark overlay */
+    justify-content: center;
+    align-items: center;
+}
+
+/* Expanded Image Styling */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+}
+
+/* Close Button */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-lightbox:hover {
+    color: #64b5f6;
+}
+
+/* Add a pointer cursor and hover effect to gallery images */
+.project-gallery img {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.project-gallery img:hover {
+    transform: scale(1.03); /* Slight zoom on hover to indicate it's clickable */
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    background: #1a252c;
+    color: #ffffff;
+    margin-top: 2rem;
+}
+/* Footer link styling */
+footer a {
+    color: #64b5f6;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
