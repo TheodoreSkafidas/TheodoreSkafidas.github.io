@@ -12,7 +12,7 @@
         <p>Electrical Engineer | Hardware & Firmware Development</p>
         <nav>
             <a href="#about">About</a>
-            <a href="#projects">Projects</a>
+            <a href="projects.html">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
@@ -20,6 +20,11 @@
     <section id="about">
         <h2>About Me</h2>
         <p>I am an electrical engineer with a strong preference for hands-on, physical engineering applications. I specialize in bridging hardware and software, from multi-layer layout configuration to embedded firmware.</p>
+        <p>Core Hardware Competencies:</p>
+        <p>PCB Design (Altium Designer): Multi-layer stack-ups, via-in-pad routing, Active BOM management, and precise mil based layout constraints.</p>
+        <p>Prototyping & Assembly: Advanced soldering, component substitution, perfboard layout, and physical hardware architecture.</p>
+        <p>System Integration: Designing physical test fixtures and hardware-level troubleshooting.</p>
+        <p>I am actively seeking opportunities in manufacturing and hardware engineering where I can step away from a strictly screen-based environment and get my hands dirty building real-world solutions.</p>
     </section>
 
     <section id="projects">
@@ -27,8 +32,8 @@
         
         <div class="project-card">
             <h3>Reconfigurable Digital IC Test Fixture</h3>
-            <p><strong>Role:</strong> Documentation & Requirements Engineering</p>
-            <p>Authored the comprehensive documentation and developed the Requirements Traceability Matrix (RTM) to ensure all design specifications were mapped and tracked prior to the final bench validation phase.</p>
+            <p><strong>Role:</strong> Component Procurement & Requirements Engineering</p>
+            <p>Managed component procurement and tracked all hardware assets using a comprehensive Bill of Materials (BOM) to ensure readiness for the final bench validation phase.</p>
         
             <div class="project-gallery">
                 <img src="images/fixture.png" alt="PCB Rendering">
@@ -36,38 +41,35 @@
 
             <div class="project-files">
                 <h4>Project Files:</h4>
-                <a href="documents/Reconfigurable_Test_Fixture.pdf" download class="file-btn">📄 Full Project Document (PDF)</a>
+                <a href="documents/Reconfigurable_Test_Fixture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
             </div>
         </div>
 
         <div class="project-card">
-            <h3>Addressable LED Pixel Array Architecture</h3>
-            <p><strong>Role:</strong> Hardware & Firmware Configuration</p>
-            <p>Configured high-density LED pixel arrays and controller firmware. Troubleshot data line integrity, implemented power injection strategies, and modified flexible PCBs for seamless operation.</p>
-        
+            <h3>Audio Driven Kinetic Sculpture</h3>
+            <p><strong>Overview:</strong></p>
+            <p>Engineered a standalone embedded system on an Arduino Mega 2560 that dynamically controlled a DC motor based on real-time environmental audio.</p>
+            <p><strong>Firmware Architecture:</strong>  Implemented hardware timer interrupts to manage asynchronous timekeeping via a DS1307 RTC over I2C, ensuring the main non-blocking loop remained free for continuous sensor polling.</p>
+            <p><strong>Signal Processing & Control:</strong> Developed a 50ms sampling window algorithm to filter analog microphone data, translating stable amplitude readings into dynamic PWM motor speed control via an L293D H-Bridge.</p>
+            <p><strong>Hardware Debugging:</strong> Successfully identified and resolved critical integration issues, such as logic-level voltage mismatches on the I2C bus and state-machine ghosting on the 16x2 LCD display.</p>
+            
             <div class="project-gallery">
-                
+                <img src="images/KineticSculpture.png" alt="Sculpture Wire Diagram">
             </div>
 
             <div class="project-files">
-                <h4>Project Files:</h4>
+                <h4>Project Links & Files:</h4>
+                <a href="https://github.com/TheodoreSkafidas/Lab3-Audio-Driven-Kinetic-Sculpture" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
+                <a href="documents/KineticSculpture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
             </div>
         </div>
 
-        <div class="project-card">
-            <h3>Multi-Layer PCB Design</h3>
-            <p><strong>Role:</strong> Layout Designer</p>
-            <p>Configured layouts and optimized hardware routing for multi-layer printed circuit boards, focusing on robust plane connections and signal integrity.</p>
+        <!-- ... your last project card ends above this ... -->
+
+        <div class="view-all-container">
+            <a href="projects.html" class="view-all-link">View Full Project Portfolio &rarr;</a>
         </div>
     </section>
-
-    <footer id="contact">
-        <h2>Get In Touch</h2>
-        <p>
-            Email: <a href="mailto:theodore_skafidas@outlook.com">theodore_skafidas@outlook.com</a> | 
-            LinkedIn: <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer"> linkedin.com/in/theodore-skafidas</a>
-        </p>
-    </footer>
 
     <!-- Lightbox Container -->
     <div id="lightbox" class="lightbox">
@@ -103,5 +105,26 @@
             }
         });
     </script>
+
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        
+        <form action="https://formspree.io/f/myegkgwn" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <p>Or connect with me on <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+    </footer>
+
 </body>
 </html>
+
