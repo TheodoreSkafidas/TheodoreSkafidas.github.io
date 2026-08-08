@@ -8,6 +8,59 @@ body {
     background-color: #f4f4f9;
 }
 
+/* ========================================= */
+/*        HARDWARE UI & TYPOGRAPHY           */
+/* ========================================= */
+
+/* 1. Global Typography */
+body, p, a, div {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, nav a, button, .filter-btn, .theme-btn, .resume-nav-btn {
+    font-family: 'Roboto Mono', monospace;
+    text-transform: uppercase; /* Gives headers a technical spec-sheet look */
+}
+
+/* 2. Copper Perfboard Background (Light Mode) */
+body {
+    background-color: #fdfaf6; /* Barely warm off-white */
+    background-image: radial-gradient(#d3b59a 1.5px, transparent 1.5px);
+    background-size: 20px 20px; /* 20px grid spacing */
+}
+
+/* 3. Machined Edges (Removes all curves) */
+.collapsible-project, .project-card, button, .filter-btn, .resume-nav-btn, img {
+    border-radius: 0 !important; 
+}
+
+/* Keep the About page profile picture circular */
+.profile-pic {
+    border-radius: 50% !important;
+}
+
+/* 4. Custom Text Selection (When highlighting text) */
+::selection {
+    background: #64b5f6; /* Standard blue highlight */
+    color: #1a252c;
+}
+
+/* 5. Custom Hardware Scrollbar */
+::-webkit-scrollbar {
+    width: 14px;
+}
+::-webkit-scrollbar-track {
+    background: #1a252c; 
+    border-left: 1px solid #333;
+}
+::-webkit-scrollbar-thumb {
+    background: #64b5f6;
+    border: 3px solid #1a252c; /* Creates a padded track look */
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #42a5f5;
+}
+
 /* Header styling */
 header {
     background: #1a252c;
@@ -404,51 +457,113 @@ details[open] .expand-icon {
     color: #1a252c;
 }
 
-/* ----------------------------- */
-/*       DARK MODE OVERRIDES     */
-/* ----------------------------- */
+/* ========================================= */
+/*        DARK MODE: ADDRESSABLE LED         */
+/* ========================================= */
 
+/* Dark Perfboard Background */
 body.dark-mode {
-    background-color: #121212;
+    background-color: #0d1117; /* Deep terminal black */
+    background-image: radial-gradient(#2d3748 1.5px, transparent 1.5px);
     color: #e0e0e0;
 }
 
-body.dark-mode header,
-body.dark-mode footer,
-body.dark-mode #scrollTopBtn {
-    background-color: #0a0e11; /* Even darker shade for headers/footers */
+/* Dark Mode Selection & Scrollbar */
+body.dark-mode ::selection {
+    background: #00f3ff; /* Cyan */
+    color: #000;
+}
+body.dark-mode ::-webkit-scrollbar-thumb {
+    background: #00f3ff;
+}
+body.dark-mode ::-webkit-scrollbar-thumb:hover {
+    background: #ff00ff; /* Magenta hover */
 }
 
-/* Dark Mode: Project Ribbons & Cards */
+/* Dark Mode Project Ribbons (LED Glow on Hover) */
 body.dark-mode .collapsible-project,
 body.dark-mode .project-card {
-    background: #1e1e1e;
-    color: #e0e0e0;
+    background: rgba(30, 30, 30, 0.95); /* Slight transparency to see grid */
+    border-left: 5px solid #00f3ff; /* Cyan base border */
+    transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+body.dark-mode .collapsible-project:hover,
+body.dark-mode .project-card:hover {
+    border-left-color: #ff00ff; /* Shifts to magenta */
+    box-shadow: -5px 0 20px rgba(0, 243, 255, 0.4), 0 4px 15px rgba(0,0,0,0.5); /* Neon side-glow */
+    transform: translateX(3px); /* Subtle physical click movement */
 }
 
 body.dark-mode .project-ribbon:hover {
-    background-color: #2a2a2a;
+    background-color: transparent;
 }
 
-body.dark-mode .ribbon-content h3,
-body.dark-mode .project-card h3 {
+/* Glowing Interactive Buttons */
+body.dark-mode .filter-btn.active, 
+body.dark-mode .filter-btn:hover,
+body.dark-mode .resume-nav-btn:hover {
+    background-color: #00f3ff;
+    color: #0d1117 !important;
+    border-color: #00f3ff;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
+}
+
+/* Secondary Magenta Glow for Footer/Header Accents */
+body.dark-mode #scrollTopBtn:hover {
+    background-color: #ff00ff;
+    color: #fff;
+    box-shadow: 0 0 15px rgba(255, 0, 255, 0.5);
+}
+
+/* Dark Mode: Readable Headers */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: #ffffff !important; 
+}
+
+/* Dark Mode: Readable Navigation Links */
+body.dark-mode nav a:not(.resume-nav-btn) {
     color: #ffffff;
+    transition: color 0.3s ease;
 }
 
-body.dark-mode .project-expanded-content {
-    border-top: 1px solid #333333;
-}
-
-/* Dark Mode: Filter Buttons */
+/* Dark Mode: Readable Inactive Filter Buttons */
 body.dark-mode .filter-btn {
-    color: #e0e0e0;
-    border-color: #e0e0e0;
+    color: #ffffff;
+    border-color: #ffffff;
 }
 
-body.dark-mode .filter-btn:hover, 
-body.dark-mode .filter-btn.active {
-    background-color: #e0e0e0;
-    color: #121212;
+/* Optional: Add a cyan hover effect to the text links */
+body.dark-mode nav a:not(.resume-nav-btn):hover {
+    color: #00f3ff; 
+}
+
+/* Dark Mode: General Text Links (View Portfolio, LinkedIn, etc.) */
+body.dark-mode a {
+    color: #00f3ff; /* Bright cyan for all standard links */
+    transition: color 0.3s ease;
+}
+
+body.dark-mode a:hover {
+    color: #ff00ff; /* Shifts to magenta when hovered */
+}
+
+/* Protect the file/github buttons so they stay crisp white */
+body.dark-mode .file-btn,
+body.dark-mode .github-btn {
+    color: #ffffff !important;
+    border: 1px solid #ffffff;
+}
+
+body.dark-mode .file-btn:hover,
+body.dark-mode .github-btn:hover {
+    background-color: #00f3ff;
+    color: #0d1117 !important;
+    border-color: #00f3ff;
+    box-shadow: 0 0 15px rgba(0, 243, 255, 0.5);
 }
 
 /* About Page Profile Picture Layout */
