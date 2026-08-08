@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Theodore Skafidas</title>
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Theodore Skafidas</h1>
+        <p>Electrical Engineer | Hardware & Firmware Development</p>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="index.html#contact">Contact</a>
+            <a href="documents/Theodore_Skafidas_Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-nav-btn">📄 View Resume</a>
+        </nav>
+    </header>
+
+    <section id="about-detailed" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+        
+        <div class="about-intro">
+            <!-- Profile Picture -->
+            <img src="images/profile.png" alt="Theodore Skafidas" class="profile-pic">
+            
+            <div class="intro-text">
+            <h2>About Me</h2>
+            <p>I am a newly graduated Electrical Engineer actively seeking full-time opportunities. My expertise lies in bridging the gap between physical hardware and embedded software, translating concepts from multi-layer board layouts into fully functional, programmed systems.</p>
+            </div>
+        </div>
+
+        <h3>Education and Background</h3>
+        <p>I hold a Bachelor's degree in Electrical Engineering, where I focused on embedded systems, PCB design, and firmware development. My academic projects often involved hands-on work with microcontrollers, sensors, and actuators, allowing me to gain practical experience in both hardware and software integration.</p>
+        
+        <h3>My Engineering Philosophy</h3>
+        <p>I have always had a strong preference for hands-on learning and tactile applications. While simulation and modeling are crucial first steps, I thrive when engaged in active electronic circuit design and hardware debugging. Rather than being confined behind a screen, I prefer roles where my contributions to the team involve bringing physical printed circuit boards to life on the bench.</p>
+        
+        <h3>Beyond the Lab</h3>
+        <p>When I am not working on hardware or firmware projects, I enjoy applying my attention to detail to building and painting plastic scale models. To completely unplug and recharge, you can usually find me outdoors enjoying some freshwater fishing at a local clearing.</p>
+    </section>
+
+    <!-- Footer with Light/Dark Mode Toggle -->
+    <footer id="contact">
+        <h2>Get In Touch</h2>
+        
+        <form action="https://formspree.io/f/myegkgwn" method="POST" class="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <p>Or connect with me on <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
+        
+        <div style="margin-top: 2rem;">
+            <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+        </div>
+    </footer>
+
+    <!-- JavaScript placed correctly at the bottom -->
+    <script>
+        // Light/Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const bodyElement = document.body;
+
+        if (localStorage.getItem('theme') === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            bodyElement.classList.toggle('dark-mode');
+            if (bodyElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            }
+        });
+    </script>
+</body>
+</html>

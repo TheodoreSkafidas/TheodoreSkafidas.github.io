@@ -450,3 +450,30 @@ body.dark-mode .filter-btn.active {
     background-color: #e0e0e0;
     color: #121212;
 }
+
+/* About Page Profile Picture Layout */
+.about-intro {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #64b5f6;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Prevents the image from being squished by the text */
+}
+
+/* Mobile Responsiveness for the About Page */
+@media (max-width: 768px) {
+    .about-intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
