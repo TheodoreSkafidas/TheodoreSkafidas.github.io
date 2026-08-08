@@ -392,10 +392,9 @@ details[open] .expand-icon {
     background-color: transparent;
     color: #ffffff;
     border: 1px solid #ffffff;
-    padding: 7px 12px;
+    padding: 8px 16px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 15px;
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
