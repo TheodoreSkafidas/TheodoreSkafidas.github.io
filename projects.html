@@ -15,136 +15,212 @@
             <a href="index.html">Home</a>
             <a href="projects.html">Projects</a>
             <a href="index.html#contact">Contact</a>
+            <a href="documents/Theodore-Skafidas-Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-nav-btn">📄 View Resume</a>
+            <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+
         </nav>
     </header>
 
     <section id="all-projects">
         <h2>Full Project Portfolio</h2>
         
-       <div class="project-card">
-            <h3>Reconfigurable Digital IC Test Fixture</h3>
-            <p><strong>Role:</strong> Component Procurement & Requirements Engineering</p>
-            <p>Managed component procurement and tracked all hardware assets using a comprehensive Bill of Materials (BOM) to ensure readiness for the final bench validation phase.</p>
-        
-            <div class="project-gallery">
-                <img src="images/fixture.png" alt="PCB Rendering">
-            </div>
-
-            <div class="project-files">
-                <h4>Project Files:</h4>
-                <a href="documents/Reconfigurable_Test_Fixture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
-            </div>
+        <!-- Filter Buttons -->
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="hardware">Hardware & Analog</button>
+            <button class="filter-btn" data-filter="firmware">Firmware & Embedded</button>
+            <button class="filter-btn" data-filter="simulation">Simulation</button>
         </div>
 
-        <div class="project-card">
-            <h3>Addressable LED Pixel Array Architecture</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Engineered the power distribution and network infrastructure for a custom addressable LED fixture. Utilized a QuinLED Dig-Quad controller and WLED firmware to drive 12V WS2818 strips, configuring the system to communicate over Ethernet with ELM (ENTTEC LED Mapper) lighting software. Successfully bench-tested the hardware to resolve power constraints and optimize network stability for seamless external lighting control.</p>
-        
-        </div>
-
-        <div class="project-card">
-            <h3>Hardware Driven Dual-Mode Infinity Mirror</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Designed and engineered a hardware-driven infinity mirror utilizing an ADC0804 Analog-to-Digital Converter to manage a 40-LED array via NPN transistor switches.</p>
-            <p><strong>Analog Circuit Design:</strong> Engineered a dual-mode input stage featuring an ambient-light responsive Sensor Mode (via an LDR) and a Predefined Pattern Mode. The pattern mode utilized a 555 timer configured as an astable multivibrator and an LM358 op-amp integrator to generate a continuous triangle wave.</p>
-            <p><strong>Simulation & Fabrication:</strong> Verified the analog waveform generation and LM7805 voltage regulation using Multisim. Assembled the physical prototype on a protoboard, utilizing DIP sockets to prevent thermal damage to the logic ICs during the soldering process.</p>
-            <p><strong>Hardware Troubleshooting:</strong> Conducted post-assembly diagnostics to isolate a suspected open circuit on the main board traces, applying systematic continuity testing to evaluate the physical wiring.</p>
+        <!-- Project 1 -->
+        <details class="collapsible-project" data-category="hardware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Reconfigurable Digital IC Test Fixture</h3>
+                    <p><strong>Role:</strong> Component Procurement & Requirements Engineering</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-files">
-                <h4>Project Files:</h4>
-                <a href="documents/InfinityMirror.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
-            </div>
-        </div>
+            <div class="project-expanded-content">
+                <p>Managed component procurement and tracked all hardware assets using a comprehensive Bill of Materials (BOM) to ensure readiness for the final bench validation phase.</p>
+                
+                <div class="project-gallery">
+                    <img src="images/fixture.png" alt="PCB Rendering">
+                </div>
 
-        <div class="project-card">
-            <h3>High-Frequency Rectangular Waveguide Simulation</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Utilized Ansys HFSS to conduct 3D electromagnetic modeling and performance analysis of a rectangular waveguide optimized for high-frequency band operation.</p>
-            <p><strong>Electromagnetic Simulation:</strong> Designed the physical geometry and configured accurate boundary conditions, material properties, and wave ports to simulate targeted RF behavior.</p>
-            <p><strong>Performance Analysis:</strong> Extracted and analyzed S-parameters to evaluate insertion and return loss, and plotted field distributions to visualize mode propagation and ensure the structure met the specific frequency band requirements.</p>
+                <div class="project-files">
+                    <h4>Project Files:</h4>
+                    <a href="documents/Reconfigurable_Test_Fixture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
+            </div>
+        </details>
+
+        <!-- Project 2 -->
+        <details class="collapsible-project" data-category="firmware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Addressable LED Pixel Array Architecture</h3>
+                    <p><strong>Overview:</strong> Engineered the power distribution and network infrastructure for a custom addressable LED fixture.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-files">
-                <h4>Project Files:</h4>
-                <a href="documents/Waveguide.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+            <div class="project-expanded-content">
+                <p>Utilized a QuinLED Dig-Quad controller and WLED firmware to drive 12V WS2818 strips, configuring the system to communicate over Ethernet with ELM (ENTTEC LED Mapper) lighting software. Successfully bench-tested the hardware to resolve power constraints and optimize network stability for seamless external lighting control.</p>
             </div>
-        </div>
+        </details>
 
-
-        <div class="project-card">
-            <h3>Audio Driven Kinetic Sculpture</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Engineered a standalone embedded system on an Arduino Mega 2560 that dynamically controlled a DC motor based on real-time environmental audio.</p>
-            <p><strong>Firmware Architecture:</strong>  Implemented hardware timer interrupts to manage asynchronous timekeeping via a DS1307 RTC over I2C, ensuring the main non-blocking loop remained free for continuous sensor polling.</p>
-            <p><strong>Signal Processing & Control:</strong> Developed a 50ms sampling window algorithm to filter analog microphone data, translating stable amplitude readings into dynamic PWM motor speed control via an L293D H-Bridge.</p>
-            <p><strong>Hardware Debugging:</strong> Successfully identified and resolved critical integration issues, such as logic-level voltage mismatches on the I2C bus and state-machine ghosting on the 16x2 LCD display.</p>
+        <!-- Project 3 -->
+        <details class="collapsible-project" data-category="hardware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Hardware Driven Dual-Mode Infinity Mirror</h3>
+                    <p><strong>Overview:</strong> Designed and engineered a hardware-driven infinity mirror utilizing an ADC0804 Analog-to-Digital Converter to manage a 40-LED array via NPN transistor switches.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-gallery">
-                <img src="images/KineticSculpture.png" alt="Sculpture Wire Diagram">
+            <div class="project-expanded-content">
+                <p><strong>Analog Circuit Design:</strong> Engineered a dual-mode input stage featuring an ambient-light responsive Sensor Mode (via an LDR) and a Predefined Pattern Mode. The pattern mode utilized a 555 timer configured as an astable multivibrator and an LM358 op-amp integrator to generate a continuous triangle wave.</p>
+                <p><strong>Simulation & Fabrication:</strong> Verified the analog waveform generation and LM7805 voltage regulation using Multisim. Assembled the physical prototype on a protoboard, utilizing DIP sockets to prevent thermal damage to the logic ICs during the soldering process.</p>
+                <p><strong>Hardware Troubleshooting:</strong> Conducted post-assembly diagnostics to isolate a suspected open circuit on the main board traces, applying systematic continuity testing to evaluate the physical wiring.</p>
+                
+                <div class="project-files">
+                    <h4>Project Files:</h4>
+                    <a href="documents/InfinityMirror.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
             </div>
+        </details>
 
-            <div class="project-files">
-                <h4>Project Links & Files:</h4>
-                <a href="https://github.com/TheodoreSkafidas/Lab3-Audio-Driven-Kinetic-Sculpture" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
-                <a href="documents/KineticSculpture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
-            </div>
-        </div>
-
-        <div class="project-card">
-            <h3>Arduino-Based Game Controller and Python Integration</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Engineered a custom hardware controller using an Arduino Mega 2560 to interface with a Python-based game application via bi-directional serial communication.</p>
-            <p><strong>Hardware/Software Integration:</strong> Designed an event-driven, non-blocking C++ polling loop to read analog joystick inputs and an MPU-6500 gyroscope over I2C, translating them into low-latency game commands using the Python pyserial library.</p>
-            <p><strong>Sensor Fusion & Debugging:</strong> Resolved a "return-to-center" directional bug by shifting from raw gyroscope velocity to calculating the sensor's absolute tilt angle (pitch and roll) to provide an intuitive control scheme.</p>
-            <p><strong>Actuator Feedback:</strong> Configured a passive buzzer using software-generated square waves to provide immediate audio feedback triggered by in-game events.</p>
+        <!-- Project 4 -->
+        <details class="collapsible-project" data-category="simulation">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>High-Frequency Rectangular Waveguide Simulation</h3>
+                    <p><strong>Overview:</strong> Utilized Ansys HFSS to conduct 3D electromagnetic modeling and performance analysis of a rectangular waveguide optimized for high-frequency band operation.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-gallery">
-                <img src="images/JoystickController.png" alt="Controller Wire Diagram">
+            <div class="project-expanded-content">
+                <p><strong>Electromagnetic Simulation:</strong> Designed the physical geometry and configured accurate boundary conditions, material properties, and wave ports to simulate targeted RF behavior.</p>
+                <p><strong>Performance Analysis:</strong> Extracted and analyzed S-parameters to evaluate insertion and return loss, and plotted field distributions to visualize mode propagation and ensure the structure met the specific frequency band requirements.</p>
+                
+                <div class="project-files">
+                    <h4>Project Files:</h4>
+                    <a href="documents/Waveguide.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
             </div>
+        </details>
 
-            <div class="project-files">
-                <h4>Project Links & Files:</h4>
-                <a href="https://github.com/TheodoreSkafidas/Lab2-GameController" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
-                <a href="documents/GameController.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
-            </div>
-        </div>
 
-        <div class="project-card">
-            <h3>Embedded Traffic Light Controller with Keypad Input</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Engineered an interactive traffic light controller using an ATmega2560 microcontroller, integrating a 4x4 matrix keypad and a passive buzzer.</p>
-            <p><strong>Firmware Architecture:</strong>  Designed a non-blocking finite-state machine (FSM) in C++ to manage simultaneous operations. This architecture handled a 1Hz hardware timer interrupt and continuous user input polling via the millis() function.</p>
-            <p><strong>Mixed-Language Programming:</strong> Implemented inline AVR assembly for direct, low-level I/O manipulation to control LED states. Successfully resolved memory addressing faults by researching and applying the correct PORTB register addresses.</p>
-            <p><strong>Hardware Debugging:</strong> Troubleshot and resolved software-to-hardware integration issues. This included converting DC voltage signals to square waves via the tone() function to properly drive the passive buzzer.</p>
+        <!-- Project 5 -->
+        <details class="collapsible-project" data-category="firmware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Audio Driven Kinetic Sculpture</h3>
+                    <p><strong>Overview:</strong> Engineered a standalone embedded system on an Arduino Mega 2560 that dynamically controlled a DC motor based on real-time environmental audio.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-gallery">
-                <img src="images/TrafficController.png" alt="Controller Wire Diagram">
-            </div>
+            <div class="project-expanded-content">
+                <p><strong>Firmware Architecture:</strong>  Implemented hardware timer interrupts to manage asynchronous timekeeping via a DS1307 RTC over I2C, ensuring the main non-blocking loop remained free for continuous sensor polling.</p>
+                <p><strong>Signal Processing & Control:</strong> Developed a 50ms sampling window algorithm to filter analog microphone data, translating stable amplitude readings into dynamic PWM motor speed control via an L293D H-Bridge.</p>
+                <p><strong>Hardware Debugging:</strong> Successfully identified and resolved critical integration issues, such as logic-level voltage mismatches on the I2C bus and state-machine ghosting on the 16x2 LCD display.</p>
+                
+                <div class="project-gallery">
+                    <img src="images/KineticSculpture.png" alt="Sculpture Wire Diagram">
+                </div>
 
-            <div class="project-files">
-                <h4>Project Links & Files:</h4>
-                <a href="https://github.com/TheodoreSkafidas/Lab1-Traffic-Light-Controller" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
-                <a href="documents/TrafficController.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                <div class="project-files">
+                    <h4>Project Links & Files:</h4>
+                    <a href="https://github.com/TheodoreSkafidas/Lab3-Audio-Driven-Kinetic-Sculpture" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
+                    <a href="documents/KineticSculpture.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
             </div>
-        </div>
+        </details>
 
-        <div class="project-card">
-            <h3>Analog Code Checker</h3>
-            <p><strong>Overview:</strong></p>
-            <p>Engineered an analog circuit to verify specific resistor combinations using 741 operational amplifiers and bipolar junction transistors (BJTs).</p>
-            <p><strong>Analog Logic Design:</strong>  Configured op-amps as voltage comparators against a calculated reference voltage to evaluate resistor ratios.</p>
-            <p><strong>Transistor Logic Gates:</strong> Utilized 2N3904 npn BJTs to construct hardware-level AND and NOT logic gates, successfully driving green and red LED indicators based on the comparator outputs.</p>
-            <p><strong>Simulation & Testing:</strong> Validated the theoretical design in Multisim and tested the physical breadboard assembly using a bench-top DMM and dual power supply. Evaluated the final circuit, documenting design improvements for ratio-based versus absolute value checking.</p>
+        <!-- Project 6 -->
+        <details class="collapsible-project" data-category="firmware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Arduino-Based Game Controller and Python Integration</h3>
+                    <p><strong>Overview:</strong> Engineered a custom hardware controller using an Arduino Mega 2560 to interface with a Python-based game application via bi-directional serial communication.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
             
-            <div class="project-gallery">
-                <img src="images/Combinator.png" alt="Controller Wire Diagram">
-            </div>
+            <div class="project-expanded-content">
+                <p><strong>Hardware/Software Integration:</strong> Designed an event-driven, non-blocking C++ polling loop to read analog joystick inputs and an MPU-6500 gyroscope over I2C, translating them into low-latency game commands using the Python pyserial library.</p>
+                <p><strong>Sensor Fusion & Debugging:</strong> Resolved a "return-to-center" directional bug by shifting from raw gyroscope velocity to calculating the sensor's absolute tilt angle (pitch and roll) to provide an intuitive control scheme.</p>
+                <p><strong>Actuator Feedback:</strong> Configured a passive buzzer using software-generated square waves to provide immediate audio feedback triggered by in-game events.</p>
+                
+                <div class="project-gallery">
+                    <img src="images/JoystickController.png" alt="Controller Wire Diagram">
+                </div>
 
-            <div class="project-files">
-                <h4>Project Files:</h4>
-                <a href="documents/Combinator.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                <div class="project-files">
+                    <h4>Project Links & Files:</h4>
+                    <a href="https://github.com/TheodoreSkafidas/Lab2-GameController" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
+                    <a href="documents/GameController.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
             </div>
-        </div>
+        </details>
+
+        <!-- Project 7 -->
+        <details class="collapsible-project" data-category="firmware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Embedded Traffic Light Controller with Keypad Input</h3>
+                    <p><strong>Overview:</strong> Engineered an interactive traffic light controller using an ATmega2560 microcontroller, integrating a 4x4 matrix keypad and a passive buzzer.</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
+            
+            <div class="project-expanded-content">
+                <p><strong>Firmware Architecture:</strong>  Designed a non-blocking finite-state machine (FSM) in C++ to manage simultaneous operations. This architecture handled a 1Hz hardware timer interrupt and continuous user input polling via the millis() function.</p>
+                <p><strong>Mixed-Language Programming:</strong> Implemented inline AVR assembly for direct, low-level I/O manipulation to control LED states. Successfully resolved memory addressing faults by researching and applying the correct PORTB register addresses.</p>
+                <p><strong>Hardware Debugging:</strong> Troubleshot and resolved software-to-hardware integration issues. This included converting DC voltage signals to square waves via the tone() function to properly drive the passive buzzer.</p>
+                
+                <div class="project-gallery">
+                    <img src="images/TrafficController.png" alt="Controller Wire Diagram">
+                </div>
+
+                <div class="project-files">
+                    <h4>Project Links & Files:</h4>
+                    <a href="https://github.com/TheodoreSkafidas/Lab1-Traffic-Light-Controller" target="_blank" rel="noopener noreferrer" class="github-btn">💻 View Code on GitHub</a>
+                    <a href="documents/TrafficController.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
+            </div>
+        </details>
+
+        <!-- Project 8 -->
+        <details class="collapsible-project" data-category="hardware">
+            <summary class="project-ribbon">
+                <div class="ribbon-content">
+                    <h3>Analog Code Checker</h3>
+                    <p><strong>Overview:</strong> Engineered an analog circuit to verify specific resistor combinations using 741 operational amplifiers and bipolar junction transistors (BJTs).</p>
+                </div>
+                <span class="expand-icon">+</span>
+            </summary>
+            
+            <div class="project-expanded-content">
+                <p><strong>Analog Logic Design:</strong>  Configured op-amps as voltage comparators against a calculated reference voltage to evaluate resistor ratios.</p>
+                <p><strong>Transistor Logic Gates:</strong> Utilized 2N3904 npn BJTs to construct hardware-level AND and NOT logic gates, successfully driving green and red LED indicators based on the comparator outputs.</p>
+                <p><strong>Simulation & Testing:</strong> Validated the theoretical design in Multisim and tested the physical breadboard assembly using a bench-top DMM and dual power supply. Evaluated the final circuit, documenting design improvements for ratio-based versus absolute value checking.</p>
+                
+                <div class="project-gallery">
+                    <img src="images/Combinator.png" alt="Controller Wire Diagram">
+                </div>
+
+                <div class="project-files">
+                    <h4>Project Files:</h4>
+                    <a href="documents/Combinator.pdf" target="_blank" rel="noopener noreferrer" class="file-btn">📄 View Project Report (PDF)</a>
+                </div>
+            </div>
+        </details>
     </section>
 
      <!-- Lightbox Container -->
@@ -153,6 +229,8 @@
         <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">↑</button>
 
     <!-- JavaScript for Lightbox -->
     <script>
@@ -181,6 +259,83 @@
                 lightbox.style.display = 'none';
             }
         });
+
+        // Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Listen for scrolling events
+        window.addEventListener("scroll", () => {
+            // Show button after scrolling down 300px
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        });
+
+        // Listen for a click on the button
+        scrollTopBtn.addEventListener("click", () => {
+            // Smoothly scroll back to coordinates 0,0 (the very top)
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Project Filtering Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const allProjects = document.querySelectorAll('.collapsible-project');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove the 'active' highlight from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add the 'active' highlight to the clicked button
+                btn.classList.add('active');
+
+                // Get the category we want to filter by
+                const filterValue = btn.getAttribute('data-filter');
+
+                // Loop through every project
+                allProjects.forEach(project => {
+                    const projectCategory = project.getAttribute('data-category');
+                    
+                    // If the filter is 'all' OR the project matches the category, show it
+                    if (filterValue === 'all' || projectCategory === filterValue) {
+                        project.classList.remove('hidden-project');
+                    } else {
+                        // Otherwise, hide it
+                        project.classList.add('hidden-project');
+                    }
+                });
+            });
+        });
+
+        // Light/Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const bodyElement = document.body;
+
+        // 1. Check local storage to see if the user previously chose dark mode
+        if (localStorage.getItem('theme') === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        // 2. Listen for clicks on the toggle button
+        themeToggle.addEventListener('click', () => {
+            // Toggle the class on the body
+            bodyElement.classList.toggle('dark-mode');
+            
+            // Update the button text and save the preference
+            if (bodyElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            }
+        });
     </script>
 
 
@@ -202,6 +357,7 @@
 
         <p>Or connect with me on <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     </footer>
+    
     
 </body>
 </html>

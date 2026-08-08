@@ -12,8 +12,13 @@ body {
 header {
     background: #1a252c;
     color: #ffffff;
-    padding: 3rem 0;
+    padding: 1.5rem 0;
     text-align: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 999; /* Ensures the header stays on top of your project images and ribbons */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Adds a drop shadow so it visually floats above the page */
 }
 
 header nav {
@@ -247,4 +252,202 @@ footer a:hover {
 .view-all-link:hover {
     color: #64b5f6;
     text-decoration: underline;
+}
+
+/* Collapsible Project Styling */
+.collapsible-project {
+    background: #ffffff;
+    margin-bottom: 1.5rem;
+    border-radius: 8px;
+    border-left: 5px solid #64b5f6;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    overflow: hidden; /* Keeps the corners rounded even when expanded */
+}
+
+/* The Clickable Ribbon */
+.project-ribbon {
+    padding: 1.5rem;
+    cursor: pointer;
+    list-style: none; /* Hides the default HTML triangle */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+/* Hides the default triangle specifically in Chrome/Safari */
+.project-ribbon::-webkit-details-marker {
+    display: none;
+}
+
+.project-ribbon:hover {
+    background-color: #f4f8fc;
+}
+
+.ribbon-content h3 {
+    margin: 0 0 0.5rem 0;
+    color: #1a252c;
+}
+
+.ribbon-content p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* The Plus Icon */
+.expand-icon {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #64b5f6;
+    margin-left: 1.5rem;
+    transition: transform 0.3s ease; /* Smooth rotation animation */
+}
+
+/* Rotates the Plus into an X when the details tag is open */
+details[open] .expand-icon {
+    transform: rotate(45deg);
+    color: #e57373; /* Changes to a soft red for closing */
+}
+
+/* The Expanded Content Area */
+.project-expanded-content {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+    border-top: 1px solid #eeeeee;
+    margin-top: 0.5rem;
+    padding-top: 1.5rem;
+}
+
+/* Resume Navigation Button */
+.resume-nav-btn {
+    background-color: #64b5f6;
+    color: #1a252c !important; /* The !important tag ensures it overrides the default blue link color */
+    padding: 8px 15px;
+    border-radius: 4px;
+    margin-left: 20px; /* Pushes the button slightly away from the standard links */
+    transition: background-color 0.3s ease;
+}
+
+.resume-nav-btn:hover {
+    background-color: #ffffff;
+    color: #1a252c !important;
+    text-decoration: none !important;
+}
+
+/* Scroll to Top Button Styling */
+#scrollTopBtn {
+    display: none; /* Hidden by default via JavaScript */
+    position: fixed; 
+    bottom: 40px; 
+    right: 40px; 
+    z-index: 999; 
+    font-size: 24px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: #1a252c;
+    color: #64b5f6;
+    cursor: pointer;
+    padding: 10px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#scrollTopBtn:hover {
+    background-color: #64b5f6;
+    color: #1a252c;
+}
+
+/* Project Filter Buttons */
+.project-filters {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background-color: transparent;
+    color: #1a252c;
+    border: 2px solid #1a252c;
+    padding: 8px 16px;
+    margin: 0 5px;
+    border-radius: 20px; /* Makes them look like pills */
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover, 
+.filter-btn.active {
+    background-color: #1a252c;
+    color: #ffffff;
+}
+
+/* Utility class applied by JavaScript to hide projects */
+.hidden-project {
+    display: none !important;
+}
+
+/* Theme Toggle Button Styling */
+.theme-btn {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 7px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 15px;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+    background-color: #ffffff;
+    color: #1a252c;
+}
+
+/* ----------------------------- */
+/*       DARK MODE OVERRIDES     */
+/* ----------------------------- */
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode #scrollTopBtn {
+    background-color: #0a0e11; /* Even darker shade for headers/footers */
+}
+
+/* Dark Mode: Project Ribbons & Cards */
+body.dark-mode .collapsible-project,
+body.dark-mode .project-card {
+    background: #1e1e1e;
+    color: #e0e0e0;
+}
+
+body.dark-mode .project-ribbon:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-mode .ribbon-content h3,
+body.dark-mode .project-card h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .project-expanded-content {
+    border-top: 1px solid #333333;
+}
+
+/* Dark Mode: Filter Buttons */
+body.dark-mode .filter-btn {
+    color: #e0e0e0;
+    border-color: #e0e0e0;
+}
+
+body.dark-mode .filter-btn:hover, 
+body.dark-mode .filter-btn.active {
+    background-color: #e0e0e0;
+    color: #121212;
 }

@@ -14,6 +14,8 @@
             <a href="#about">About</a>
             <a href="projects.html">Projects</a>
             <a href="#contact">Contact</a>
+            <a href="documents/Theodore-Skafidas-Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-nav-btn">📄 View Resume</a>
+            <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
         </nav>
     </header>
 
@@ -77,6 +79,9 @@
         <img class="lightbox-content" id="lightbox-img" alt="Expanded view">
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scrollTopBtn" title="Go to top">↑</button>
+
     <!-- JavaScript for Lightbox -->
     <script>
         // Grab the elements from the HTML
@@ -104,6 +109,53 @@
                 lightbox.style.display = 'none';
             }
         });
+
+        // Scroll to Top Button Logic
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Listen for scrolling events
+        window.addEventListener("scroll", () => {
+            // Show button after scrolling down 300px
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.display = "block";
+            } else {
+                scrollTopBtn.style.display = "none";
+            }
+        });
+
+        // Listen for a click on the button
+        scrollTopBtn.addEventListener("click", () => {
+            // Smoothly scroll back to coordinates 0,0 (the very top)
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        });
+
+        // Light/Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('themeToggle');
+        const bodyElement = document.body;
+
+        // 1. Check local storage to see if the user previously chose dark mode
+        if (localStorage.getItem('theme') === 'dark') {
+            bodyElement.classList.add('dark-mode');
+            themeToggle.textContent = '☀️ Light Mode';
+        }
+
+        // 2. Listen for clicks on the toggle button
+        themeToggle.addEventListener('click', () => {
+            // Toggle the class on the body
+            bodyElement.classList.toggle('dark-mode');
+            
+            // Update the button text and save the preference
+            if (bodyElement.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️ Light Mode';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙 Dark Mode';
+            }
+        });
     </script>
 
     <footer id="contact">
@@ -124,7 +176,8 @@
 
         <p>Or connect with me on <a href="https://www.linkedin.com/in/theodore-skafidas" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
     </footer>
-
+    
+    
 </body>
 </html>
 
